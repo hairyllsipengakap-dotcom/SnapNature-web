@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SnapNature — Admin Dashboard</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark">🌿</span> SnapNature
+        <span class="tagline">Field Catalogue</span>
+      </div>
+      <nav>
+        <a href="index.html">Home Feed</a>
+        <a href="upload.html">Submit a Discovery</a>
+        <a href="admin.html" class="active">Admin</a>
+        <span class="auth-status" id="authStatus"></span>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="hero-eyebrow">Review queue</div>
+      <h1>Verify before it's public.</h1>
+      <p>Every submission waits here until an admin approves or removes it.</p>
+    </div>
+  </div>
+</header>
+<div class="perf-strip"></div>
+
+<main class="page">
+
+  <!-- Passcode gate -->
+  <div id="gate" class="gate">
+    <h2>Admin sign-in</h2>
+    <p class="subtitle">Enter the admin passcode to review pending posts.</p>
+    <div class="field">
+      <label for="passcode">Passcode</label>
+      <input type="text" id="passcode" placeholder="Enter passcode" />
+    </div>
+    <button id="enterBtn" class="btn btn-primary" style="width:100%;">Enter dashboard</button>
+    <div id="gateMsg" class="status-msg error"></div>
+  </div>
+
+  <!-- Dashboard (hidden until passcode is correct) -->
+  <div id="dashboard" style="display:none;">
+    <div class="section-head">
+      <h2>Pending queue</h2>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span class="count-chip" id="pendingCount">— waiting</span>
+        <button type="button" id="adminLogoutBtn" class="btn btn-outline">Logout</button>
+      </div>
+    </div>
+    <div id="pendingContainer"></div>
+  </div>
+
+</main>
+
+<footer class="site-footer">SNAPNATURE · CSC264 INDIVIDUAL PROJECT PROPOSAL</footer>
+
+<script type="module" src="js/auth-nav.js"></script>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

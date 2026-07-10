@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SnapNature — Home Feed</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark">🌿</span> SnapNature
+        <span class="tagline">Field Catalogue</span>
+      </div>
+      <nav>
+        <a href="index.html" class="active">Home Feed</a>
+        <a href="upload.html">Submit a Discovery</a>
+        <a href="admin.html">Admin</a>
+        <span class="auth-status" id="authStatus"></span>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="hero-eyebrow">Verified sightings · updated live</div>
+      <h1>Field notes from the wild, catalogued.</h1>
+      <p>Every entry below has passed admin review — pinned by location, tagged by species, ready to reference.</p>
+    </div>
+  </div>
+</header>
+<div class="perf-strip"></div>
+
+<main class="page">
+  <div class="section-head">
+    <h2>Approved specimens</h2>
+    <span class="count-chip" id="countChip">— entries</span>
+  </div>
+
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="All">All</button>
+    <button class="filter-btn" data-filter="Flora">Flora</button>
+    <button class="filter-btn" data-filter="Fauna">Fauna</button>
+  </div>
+
+  <div id="feedContainer" class="grid">
+    <div class="loading-state">Loading approved posts…</div>
+  </div>
+</main>
+
+<footer class="site-footer">SNAPNATURE · CSC264 INDIVIDUAL PROJECT PROPOSAL</footer>
+
+<script type="module" src="js/auth-nav.js"></script>
+<script type="module" src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SnapNature — Submit a Discovery</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="topbar">
+      <div class="brand">
+        <span class="mark">🌿</span> SnapNature
+        <span class="tagline">Field Catalogue</span>
+      </div>
+      <nav>
+        <a href="index.html">Home Feed</a>
+        <a href="upload.html" class="active">Submit a Discovery</a>
+        <a href="admin.html">Admin</a>
+        <span class="auth-status" id="authStatus"></span>
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="hero-eyebrow">New field entry</div>
+      <h1>Log what you found.</h1>
+      <p>Fill in the specimen details below. Entries are held for admin review before they join the public catalogue.</p>
+    </div>
+  </div>
+</header>
+<div class="perf-strip"></div>
+
+<main class="page">
+
+  <!-- Shown if not signed in -->
+  <div id="signInGate" class="auth-card" style="display:none;">
+    <h2 style="text-align:center;">Sign in to submit</h2>
+    <p style="text-align:center; color:var(--ink-soft); font-size:0.9rem; margin-top:6px;">
+      Discoveries are credited to your account, so you'll need to sign in first.
+    </p>
+    <a href="login.html" class="btn btn-primary" style="width:100%; display:block; text-align:center; text-decoration:none; margin-top:16px; box-sizing:border-box;">Go to login</a>
+  </div>
+
+  <div id="uploadWrap" class="form-wrap" style="display:none;">
+
+    <form id="uploadForm" class="form-card">
+      <div class="form-inner">
+
+        <div class="field">
+          <label for="title">Subject name</label>
+          <input type="text" id="title" placeholder="e.g. Rafflesia, Long-tailed macaque" required />
+        </div>
+
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="" disabled selected>Select flora or fauna</option>
+            <option value="Flora">Flora</option>
+            <option value="Fauna">Fauna</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="location">Location <span class="hint">lat, lng</span></label>
+          <div class="location-row">
+            <input type="text" id="location" placeholder="3.13900, 101.68690" required />
+            <button type="button" id="useLocationBtn" class="btn btn-outline">Use my location</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="Describe what you saw, habitat, behaviour, etc." required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="photo">Photo</label>
+          <div class="drop-zone" id="dropZone">
+            <div class="dz-icon">📷</div>
+            <div class="dz-text">Tap to choose a photo from your gallery</div>
+            <div class="dz-filename" id="dzFilename"></div>
+            <input type="file" id="photo" accept="image/*" required />
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn btn-primary">Submit for review</button>
+
+        <div id="statusMsg" class="status-msg"></div>
+      </div>
+    </form>
+
+    <aside class="side-note">
+      <h3>Before you submit</h3>
+      <ol>
+        <li>Pin the exact location — it's what makes the catalogue useful for research.</li>
+        <li>One clear photo is enough; avoid blurry or distant shots.</li>
+        <li>An admin reviews every entry, so it won't appear on the home feed immediately.</li>
+      </ol>
+    </aside>
+
+  </div>
+</main>
+
+<footer class="site-footer">SNAPNATURE · CSC264 INDIVIDUAL PROJECT PROPOSAL</footer>
+
+<script type="module" src="js/auth-nav.js"></script>
+<script type="module" src="js/upload.js"></script>
+</body>
+</html>
